@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="吉成株式会社はSNSマーケティング・ブランディング・デジタルマーケティング・ホームページ制作・ファイナンシャルプランニングを通じて、お客様のビジネス成長を支援します。" />
+  <meta property="og:title" content="吉成株式会社 | SNSマーケティング・デジタル戦略・FPサービス" />
+  <meta property="og:description" content="SNSマーケティング、ブランディング、デジタルマーケティング、ホームページ制作、FPサービスでビジネスをトータルサポート。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yoshinarcorp.com/" />
+  <meta property="og:image" content="https://yoshinarcorp.com/images/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="吉成株式会社 | SNSマーケティング・デジタル戦略・FPサービス" />
+  <meta name="twitter:description" content="SNSマーケティング、ブランディング、デジタルマーケティング、ホームページ制作、FPサービスでビジネスをトータルサポート。" />
+  <meta name="twitter:image" content="https://yoshinarcorp.com/images/og-image.png" />
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+  <title>吉成株式会社 | SNSマーケティング・デジタル戦略・FPサービス</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ---- トップページ固有スタイル ---- */
+
+    /* ヒーロー */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 68px;
+      background: linear-gradient(150deg, #f0f5ff 0%, #ffffff 60%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(59,130,246,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(30,64,175,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 80px 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(59,130,246,0.08);
+      border: 1px solid rgba(59,130,246,0.2);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-accent);
+      margin-bottom: 24px;
+      font-family: var(--font-en);
+      letter-spacing: 0.04em;
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--color-text-primary);
+      margin-bottom: 24px;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: var(--color-accent);
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      line-height: 1.9;
+      margin-bottom: 36px;
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ヒーロービジュアル */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* グローブビジュアル */
+    .hero-globe {
+      position: relative;
+      width: 420px;
+      height: 420px;
+      max-width: 100%;
+      aspect-ratio: 1;
+    }
+
+    .hero-globe svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ノードのパルスアニメーション */
+    @keyframes pulse {
+      0%, 100% { opacity: 0.7; r: 4; }
+      50% { opacity: 1; r: 6; }
+    }
+
+    @keyframes pulse-lg {
+      0%, 100% { opacity: 0.6; r: 6; }
+      50% { opacity: 1; r: 9; }
+    }
+
+    @keyframes orbit {
+      0% { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: -20; }
+    }
+
+    @keyframes float-label {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .globe-node {
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .globe-node-lg {
+      animation: pulse-lg 3s ease-in-out infinite;
+    }
+
+    .globe-ring {
+      animation: orbit 4s linear infinite;
+    }
+
+    .globe-label {
+      font-family: var(--font-en);
+      font-size: 11px;
+      font-weight: 600;
+      fill: var(--color-accent);
+      letter-spacing: 0.04em;
+    }
+
+    .globe-label-ja {
+      font-family: var(--font-ja);
+      font-size: 10px;
+      font-weight: 600;
+      fill: var(--color-text-secondary);
+    }
+
+    .globe-float {
+      animation: float-label 4s ease-in-out infinite;
+    }
+
+    .globe-float-delay-1 { animation-delay: 0.8s; }
+    .globe-float-delay-2 { animation-delay: 1.6s; }
+    .globe-float-delay-3 { animation-delay: 2.4s; }
+    .globe-float-delay-4 { animation-delay: 3.2s; }
+
+    /* HP制作バナー */
+    .hp-banner {
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hp-banner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hp-banner-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      padding: 40px 24px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hp-banner-content {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .hp-banner-icon {
+      font-size: 40px;
+      line-height: 1;
+    }
+
+    .hp-banner-text h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 4px;
+    }
+
+    .hp-banner-text p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.7;
+    }
+
+    .hp-banner-highlight {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-shrink: 0;
+    }
+
+    .hp-banner-num {
+      text-align: center;
+    }
+
+    .hp-banner-num-value {
+      font-family: var(--font-en);
+      font-size: 36px;
+      font-weight: 700;
+      color: white;
+      line-height: 1;
+    }
+
+    .hp-banner-num-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.65);
+      margin-top: 4px;
+      white-space: nowrap;
+    }
+
+    .hp-banner-divider {
+      width: 1px;
+      height: 48px;
+      background: rgba(255,255,255,0.2);
+    }
+
+    .btn-banner {
+      background: white;
+      color: var(--color-accent);
+      font-weight: 700;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .btn-banner:hover {
+      background: #f0f5ff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 900px) {
+      .hp-banner-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hp-banner-content { justify-content: center; }
+      .hp-banner-highlight { justify-content: center; }
+    }
+
+    /* 実績バー */
+    .stats-bar {
+      background: var(--color-text-primary);
+      padding: 28px 0;
+    }
+
+    .stats-inner {
+      display: flex;
+      justify-content: center;
+      gap: 64px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: var(--font-en);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--color-white);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 6px;
+    }
+
+    /* サービス一覧 */
+    .services-section {
+      background: var(--color-surface);
+    }
+
+    .services-header {
+      margin-bottom: 56px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 32px 28px;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(59,130,246,0.3);
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(59,130,246,0.08);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .service-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin-bottom: 10px;
+    }
+
+    .service-desc {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      line-height: 1.85;
+    }
+
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-accent);
+      margin-top: 16px;
+      transition: gap var(--transition);
+    }
+
+    .service-link:hover {
+      gap: 10px;
+    }
+
+    /* 会社の特徴 */
+    .features-section {}
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .features-text .section-desc {
+      max-width: 100%;
+      margin-bottom: 32px;
+    }
+
+    .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      background: rgba(30,64,175,0.08);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .feature-item h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .feature-item p {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      line-height: 1.8;
+    }
+
+    .features-visual {
+      background: linear-gradient(135deg, #f0f5ff 0%, #e8f0fe 100%);
+      border-radius: var(--radius-lg);
+      padding: 48px 40px;
+      text-align: center;
+    }
+
+    .features-visual-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-family: var(--font-en);
+    }
+
+    .services-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .tag {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: 100px;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* CTAセクション */
+    .cta-section {
+      background: var(--color-accent);
+      padding: 80px 0;
+    }
+
+    .cta-inner {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .cta-title {
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 700;
+      color: var(--color-white);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .cta-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.9;
+      margin-bottom: 36px;
+    }
+
+    .btn-white {
+      background: var(--color-white);
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+
+    .btn-white:hover {
+      background: #f0f5ff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+    /* レスポンシブ */
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 48px;
+      }
+
+      .hero-desc { max-width: 100%; }
+      .hero-actions { justify-content: center; }
+      .hero-globe { width: 320px; height: 320px; margin: 0 auto; }
+
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .stats-inner { gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="吉成株式会社 トップへ">
+        <span class="logo-name">吉成株式会社</span>
+        <span class="logo-tagline">Yoshinari Corporation</span>
+      </a>
+      <button class="hamburger" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" role="navigation" aria-label="グローバルナビゲーション">
+        <a href="index.html" class="active">ホーム</a>
+        <a href="services.html">サービス</a>
+        <a href="about.html">代表紹介</a>
+        <a href="contact.html" class="nav-cta">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ヒーローセクション -->
+    <section class="hero" aria-label="メインビジュアル">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-badge fade-in">✦ Digital Strategy Partner</div>
+          <h1 class="hero-title fade-in fade-in-delay-1">
+            ビジネスの成長を、<br />
+            <em>デジタルの力</em>で<br />
+            加速させる。
+          </h1>
+          <p class="hero-desc fade-in fade-in-delay-2">
+            経営コンサルティング・マーケティング・ホームページ制作・ファイナンシャルプランニングまで、法人・個人を問わずトータルでサポートします。
+          </p>
+          <div class="hero-actions fade-in fade-in-delay-3">
+            <a href="contact.html" class="btn btn-primary">無料相談はこちら →</a>
+            <a href="services.html" class="btn btn-secondary">サービスを見る</a>
+          </div>
+        </div>
+        <!-- グローブビジュアル -->
+        <div class="hero-visual fade-in fade-in-delay-2">
+          <div class="hero-globe">
+            <svg viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- 外周リング -->
+              <circle cx="210" cy="210" r="180" stroke="rgba(59,130,246,0.08)" stroke-width="1" />
+              <circle cx="210" cy="210" r="140" stroke="rgba(59,130,246,0.06)" stroke-width="1" />
+              <circle cx="210" cy="210" r="100" stroke="rgba(59,130,246,0.04)" stroke-width="1" />
+
+              <!-- 回転する点線リング -->
+              <circle cx="210" cy="210" r="160" stroke="rgba(59,130,246,0.15)" stroke-width="1.5" stroke-dasharray="4 8" class="globe-ring" fill="none" />
+
+              <!-- 接続線 -->
+              <line x1="210" y1="210" x2="105" y2="90" stroke="rgba(59,130,246,0.12)" stroke-width="1" />
+              <line x1="210" y1="210" x2="330" y2="105" stroke="rgba(59,130,246,0.12)" stroke-width="1" />
+              <line x1="210" y1="210" x2="85" y2="270" stroke="rgba(59,130,246,0.12)" stroke-width="1" />
+              <line x1="210" y1="210" x2="345" y2="280" stroke="rgba(59,130,246,0.12)" stroke-width="1" />
+              <line x1="210" y1="210" x2="195" y2="370" stroke="rgba(59,130,246,0.12)" stroke-width="1" />
+              <line x1="105" y1="90" x2="330" y2="105" stroke="rgba(59,130,246,0.06)" stroke-width="1" />
+              <line x1="85" y1="270" x2="195" y2="370" stroke="rgba(59,130,246,0.06)" stroke-width="1" />
+              <line x1="330" y1="105" x2="345" y2="280" stroke="rgba(59,130,246,0.06)" stroke-width="1" />
+
+              <!-- 中心ノード -->
+              <circle cx="210" cy="210" r="28" fill="rgba(30,64,175,0.06)" />
+              <circle cx="210" cy="210" r="16" fill="rgba(30,64,175,0.1)" />
+              <circle cx="210" cy="210" r="7" fill="#1e40af" />
+
+              <!-- 外周ノード -->
+              <circle cx="105" cy="90" r="5" fill="#3b82f6" class="globe-node" />
+              <circle cx="330" cy="105" r="5" fill="#3b82f6" class="globe-node" style="animation-delay:0.6s" />
+              <circle cx="85" cy="270" r="5" fill="#3b82f6" class="globe-node" style="animation-delay:1.2s" />
+              <circle cx="345" cy="280" r="5" fill="#3b82f6" class="globe-node" style="animation-delay:1.8s" />
+              <circle cx="195" cy="370" r="5" fill="#3b82f6" class="globe-node" style="animation-delay:2.4s" />
+
+              <!-- ラベル背景 + テキスト -->
+              <g class="globe-float">
+                <rect x="40" y="58" width="120" height="40" rx="8" fill="white" stroke="rgba(59,130,246,0.15)" stroke-width="1" />
+                <text x="100" y="74" text-anchor="middle" class="globe-label">CONSULTING</text>
+                <text x="100" y="89" text-anchor="middle" class="globe-label-ja">経営コンサル</text>
+              </g>
+
+              <g class="globe-float globe-float-delay-1">
+                <rect x="278" y="68" width="110" height="40" rx="8" fill="white" stroke="rgba(59,130,246,0.15)" stroke-width="1" />
+                <text x="333" y="84" text-anchor="middle" class="globe-label">MARKETING</text>
+                <text x="333" y="99" text-anchor="middle" class="globe-label-ja">マーケティング</text>
+              </g>
+
+              <g class="globe-float globe-float-delay-2">
+                <rect x="12" y="240" width="130" height="40" rx="8" fill="white" stroke="rgba(59,130,246,0.15)" stroke-width="1" />
+                <text x="77" y="256" text-anchor="middle" class="globe-label">BACK OFFICE</text>
+                <text x="77" y="271" text-anchor="middle" class="globe-label-ja">バックオフィス代行</text>
+              </g>
+
+              <g class="globe-float globe-float-delay-3">
+                <rect x="298" y="252" width="110" height="40" rx="8" fill="white" stroke="rgba(59,130,246,0.15)" stroke-width="1" />
+                <text x="353" y="268" text-anchor="middle" class="globe-label">PLANNING</text>
+                <text x="353" y="283" text-anchor="middle" class="globe-label-ja">FPサービス</text>
+              </g>
+
+              <g class="globe-float globe-float-delay-4">
+                <rect x="140" y="345" width="110" height="40" rx="8" fill="white" stroke="rgba(59,130,246,0.15)" stroke-width="1" />
+                <text x="195" y="361" text-anchor="middle" class="globe-label">SAAS</text>
+                <text x="195" y="376" text-anchor="middle" class="globe-label-ja">給与ナビ</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HP制作バナー -->
+    <div class="hp-banner" role="complementary" aria-label="ホームページ制作のご案内">
+      <div class="hp-banner-inner">
+        <div class="hp-banner-content fade-in">
+          <div class="hp-banner-icon">💻</div>
+          <div class="hp-banner-text">
+            <h3>ホームページ制作、はじめませんか？</h3>
+            <p>デザインから実装・SEO対策・公開後の運用までワンストップでお任せください。</p>
+          </div>
+        </div>
+        <div class="hp-banner-highlight fade-in fade-in-delay-1">
+          <div class="hp-banner-num">
+            <div class="hp-banner-num-value">3日〜</div>
+            <div class="hp-banner-num-label">最短納期</div>
+          </div>
+          <div class="hp-banner-divider"></div>
+          <div class="hp-banner-num">
+            <div class="hp-banner-num-value">5万円〜</div>
+            <div class="hp-banner-num-label">制作費用</div>
+          </div>
+          <a href="contact.html" class="btn btn-banner fade-in fade-in-delay-2">無料相談する →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 実績バー -->
+    <div class="stats-bar" role="complementary" aria-label="実績数値">
+      <div class="container">
+        <div class="stats-inner">
+          <div class="stat-item fade-in">
+            <div class="stat-number">経営</div>
+            <div class="stat-label">財務・経営アドバイザリー</div>
+          </div>
+          <div class="stat-item fade-in fade-in-delay-1">
+            <div class="stat-number">MK</div>
+            <div class="stat-label">マーケティング＆ブランディング</div>
+          </div>
+          <div class="stat-item fade-in fade-in-delay-2">
+            <div class="stat-number">FP</div>
+            <div class="stat-label">ファイナンシャルプランニング</div>
+          </div>
+          <div class="stat-item fade-in fade-in-delay-3">
+            <div class="stat-number">SaaS</div>
+            <div class="stat-label">給与ナビ（自社開発アプリ）</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- サービス概要 -->
+    <section class="services-section" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="services-header">
+          <p class="section-label">Services</p>
+          <h2 class="section-title" id="services-heading">提供サービス</h2>
+          <p class="section-desc">法人のお客様には経営・マーケティングの両面からビジネスを支援。個人のお客様にはFPサービスと自社開発の給与管理アプリをご提供します。</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card fade-in">
+            <div class="service-icon">📊</div>
+            <h3 class="service-name">経営コンサルティング</h3>
+            <p class="service-desc">財務分析・予算策定・経営戦略立案・新規事業開発など、数字と戦略の両面からビジネスの成長を支援します。</p>
+            <a href="services.html#management" class="service-link">詳しく見る →</a>
+          </div>
+          <div class="service-card fade-in fade-in-delay-1">
+            <div class="service-icon">🚀</div>
+            <h3 class="service-name">マーケティングコンサルティング</h3>
+            <p class="service-desc">SNSマーケティング・ブランディング・コンテンツ作成に加え、HP制作は最短3日・5万円〜でご提供します。</p>
+            <a href="services.html#marketing" class="service-link">詳しく見る →</a>
+          </div>
+          <div class="service-card fade-in fade-in-delay-2">
+            <div class="service-icon">💰</div>
+            <h3 class="service-name">ファイナンシャルプランニング</h3>
+            <p class="service-desc">FP資格保有者による個別相談。ライフプラン・資産形成・保険見直し・節税まで、お金の悩みをトータルサポート。</p>
+            <a href="services.html#fp" class="service-link">詳しく見る →</a>
+          </div>
+          <div class="service-card fade-in fade-in-delay-3">
+            <div class="service-icon">📋</div>
+            <h3 class="service-name">給与ナビ</h3>
+            <p class="service-desc">自社開発の給与明細可視化Webアプリ。PDF自動解析で手取り推移や控除内訳をグラフで見える化します。</p>
+            <a href="services.html#kyuyo-navi" class="service-link">詳しく見る →</a>
+          </div>
+        </div>
+        <div class="text-center mt-48">
+          <a href="services.html" class="btn btn-primary">すべてのサービスを見る</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 特徴 -->
+    <section class="features-section" aria-labelledby="features-heading">
+      <div class="container">
+        <div class="features-grid">
+          <div class="features-text">
+            <p class="section-label fade-in">Why Us</p>
+            <h2 class="section-title fade-in fade-in-delay-1" id="features-heading">吉成株式会社が<br />選ばれる理由</h2>
+            <p class="section-desc fade-in fade-in-delay-2">
+              マーケティング・Web制作・FPという異なる専門性を一つの会社で提供できるのが最大の強みです。お客様のビジネス課題に合わせた最適な提案をします。
+            </p>
+            <div class="feature-list mt-24">
+              <div class="feature-item fade-in fade-in-delay-1">
+                <div class="feature-icon">🎯</div>
+                <div>
+                  <h3>マルチスキルによるトータル支援</h3>
+                  <p>SNS・デジタルマーケティング・Web制作・FPを一社で完結。窓口が一つなのでスピーディーに対応できます。</p>
+                </div>
+              </div>
+              <div class="feature-item fade-in fade-in-delay-2">
+                <div class="feature-icon">📊</div>
+                <div>
+                  <h3>データドリブンなアプローチ</h3>
+                  <p>感覚ではなく数値に基づいた戦略立案・改善サイクルで、着実に成果を積み上げます。</p>
+                </div>
+              </div>
+              <div class="feature-item fade-in fade-in-delay-3">
+                <div class="feature-icon">🤝</div>
+                <div>
+                  <h3>親身なコミュニケーション</h3>
+                  <p>中小企業・個人事業主の方にも丁寧にご説明。「何でも相談できる」パートナーを目指しています。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="features-visual fade-in fade-in-delay-2">
+            <div class="features-visual-title">Our Expertise</div>
+            <div class="services-tags">
+              <span class="tag">経営コンサルティング</span>
+              <span class="tag">財務アドバイス</span>
+              <span class="tag">SNSマーケティング</span>
+              <span class="tag">ブランディング</span>
+              <span class="tag">ホームページ制作</span>
+              <span class="tag">コンテンツ制作</span>
+              <span class="tag">ファイナンシャルプランニング</span>
+              <span class="tag">給与ナビ</span>
+              <span class="tag">デジタル戦略立案</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" aria-labelledby="cta-heading">
+      <div class="cta-inner">
+        <h2 class="cta-title fade-in" id="cta-heading">まずはお気軽に<br />ご相談ください</h2>
+        <p class="cta-desc fade-in fade-in-delay-1">
+          初回のご相談は無料です。課題やお悩みをお聞かせいただければ、最適なサービスと進め方をご提案します。
+        </p>
+        <a href="contact.html" class="btn btn-white fade-in fade-in-delay-2">無料相談フォームへ →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- フッター -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <div class="logo">
+            <span class="logo-name">吉成株式会社</span>
+            <span class="logo-tagline">Yoshinari Corporation</span>
+          </div>
+          <p class="footer-desc">SNSマーケティング・デジタル戦略・ホームページ制作・ファイナンシャルプランニングでビジネスの成長を支援します。</p>
+        </div>
+        <nav class="footer-nav" aria-label="フッターナビゲーション">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="services.html">サービス一覧</a></li>
+            <li><a href="about.html">代表紹介</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+          </ul>
+        </nav>
+        <div class="footer-nav">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html#management">経営コンサルティング</a></li>
+            <li><a href="services.html#marketing">マーケティング</a></li>
+            <li><a href="services.html#backoffice">バックオフィス代行</a></li>
+            <li><a href="services.html#fp">FPサービス</a></li>
+            <li><a href="services.html#kyuyo-navi">給与ナビ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2024 Yoshinari Corporation. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

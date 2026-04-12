@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="吉成株式会社のサービス一覧。法人向けの経営コンサルティング・マーケティングコンサルティング、個人向けのファイナンシャルプランニング・給与ナビをご紹介します。" />
+  <meta property="og:title" content="サービス一覧 | 吉成株式会社" />
+  <meta property="og:description" content="法人向けの経営・マーケティングコンサルティング、バックオフィス代行、個人向けのFPサービス・給与ナビをご紹介します。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yoshinarcorp.com/services.html" />
+  <meta property="og:image" content="https://yoshinarcorp.com/images/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://yoshinarcorp.com/images/og-image.png" />
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+  <title>サービス一覧 | 吉成株式会社</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ---- サービスページ固有スタイル ---- */
+
+    .page-header {
+      padding: 120px 0 72px;
+      background: linear-gradient(150deg, #f0f5ff 0%, #ffffff 70%);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .page-header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--color-text-muted);
+      margin-bottom: 24px;
+    }
+
+    .breadcrumb a { color: var(--color-text-muted); transition: color var(--transition); }
+    .breadcrumb a:hover { color: var(--color-accent); }
+    .breadcrumb span { color: var(--color-text-primary); }
+
+    .page-title {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .page-desc {
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      max-width: 560px;
+      line-height: 1.9;
+    }
+
+    /* ---- カテゴリ見出し ---- */
+    .category-header {
+      padding: 64px 0 0;
+    }
+
+    .category-header-inner {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .category-icon {
+      width: 56px;
+      height: 56px;
+      min-width: 56px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+    }
+
+    .category-icon.corporate {
+      background: rgba(30,64,175,0.08);
+    }
+
+    .category-icon.individual {
+      background: rgba(22,163,74,0.08);
+    }
+
+    .category-title {
+      font-size: clamp(24px, 3.5vw, 36px);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+
+    .category-subtitle {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      margin-top: 4px;
+    }
+
+    .category-divider {
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-accent) 0%, transparent 100%);
+      margin-top: 28px;
+      border-radius: 2px;
+    }
+
+    .category-divider.green {
+      background: linear-gradient(90deg, #16a34a 0%, transparent 100%);
+    }
+
+    /* ---- サービス詳細 ---- */
+    .service-detail {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .service-detail:nth-child(even) {
+      background: var(--color-surface);
+    }
+
+    .service-detail-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+
+    .service-detail:nth-child(even) .service-detail-inner {
+      direction: rtl;
+    }
+
+    .service-detail:nth-child(even) .service-detail-inner > * {
+      direction: ltr;
+    }
+
+    .service-detail-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(59,130,246,0.07);
+      border: 1px solid rgba(59,130,246,0.15);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-accent);
+      margin-bottom: 20px;
+      font-family: var(--font-en);
+    }
+
+    .service-detail-badge.green {
+      background: rgba(22,163,74,0.07);
+      border-color: rgba(22,163,74,0.15);
+      color: #16a34a;
+    }
+
+    .service-detail-title {
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .service-detail-desc {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      line-height: 1.95;
+      margin-bottom: 32px;
+    }
+
+    .service-points {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .service-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--color-text-primary);
+    }
+
+    .service-point::before {
+      content: '✓';
+      min-width: 22px;
+      height: 22px;
+      background: var(--color-accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+
+    .service-point.green::before {
+      background: #16a34a;
+    }
+
+    /* ビジュアル */
+    .service-visual {
+      background: linear-gradient(135deg, #f0f5ff 0%, #e8f0fe 100%);
+      border-radius: var(--radius-lg);
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 24px;
+      min-height: 300px;
+      justify-content: center;
+      border: 1px solid rgba(59,130,246,0.1);
+    }
+
+    .service-visual.green {
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      border-color: rgba(22,163,74,0.1);
+    }
+
+    .service-visual-icon { font-size: 64px; line-height: 1; }
+    .service-visual-title { font-size: 18px; font-weight: 700; color: var(--color-text-primary); }
+    .service-visual-subtitle { font-size: 13px; color: var(--color-text-secondary); line-height: 1.8; }
+
+    .service-tags-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 8px;
+    }
+
+    .stag {
+      background: white;
+      border: 1px solid rgba(59,130,246,0.2);
+      color: var(--color-accent);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .stag.green {
+      border-color: rgba(22,163,74,0.2);
+      color: #16a34a;
+    }
+
+    /* CTA */
+    .services-cta {
+      background: var(--color-accent);
+      padding: 80px 0;
+    }
+
+    .cta-inner {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .cta-title {
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 700;
+      color: var(--color-white);
+      margin-bottom: 16px;
+    }
+
+    .cta-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.9;
+      margin-bottom: 36px;
+    }
+
+    .btn-white {
+      background: var(--color-white);
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+
+    .btn-white:hover {
+      background: #f0f5ff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+    /* レスポンシブ */
+    @media (max-width: 900px) {
+      .service-detail-inner {
+        grid-template-columns: 1fr;
+        direction: ltr !important;
+        gap: 40px;
+      }
+
+      .service-detail:nth-child(even) .service-detail-inner {
+        direction: ltr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="吉成株式会社 トップへ">
+        <span class="logo-name">吉成株式会社</span>
+        <span class="logo-tagline">Yoshinari Corporation</span>
+      </a>
+      <button class="hamburger" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" role="navigation" aria-label="グローバルナビゲーション">
+        <a href="index.html">ホーム</a>
+        <a href="services.html" class="active">サービス</a>
+        <a href="about.html">代表紹介</a>
+        <a href="contact.html" class="nav-cta">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ページヘッダー -->
+    <div class="page-header">
+      <div class="page-header-inner">
+        <div class="breadcrumb">
+          <a href="index.html">ホーム</a>
+          <span>›</span>
+          <span>サービス一覧</span>
+        </div>
+        <p class="section-label fade-in">Services</p>
+        <h1 class="page-title fade-in fade-in-delay-1">サービス一覧</h1>
+        <p class="page-desc fade-in fade-in-delay-2">法人のお客様には経営・マーケティングの両面からビジネスを支援。個人のお客様にはファイナンシャルプランニングと自社開発の給与管理サービスをご提供します。</p>
+      </div>
+    </div>
+
+    <!-- ============================== -->
+    <!--       法人向けサービス           -->
+    <!-- ============================== -->
+    <div class="category-header" id="corporate">
+      <div class="container">
+        <div class="category-header-inner fade-in">
+          <div class="category-icon corporate">🏢</div>
+          <div>
+            <div class="category-title">法人向けサービス</div>
+            <div class="category-subtitle">For Business</div>
+          </div>
+        </div>
+        <div class="category-divider"></div>
+      </div>
+    </div>
+
+    <!-- 経営コンサルティング -->
+    <section class="service-detail" id="management" aria-labelledby="management-heading">
+      <div class="container">
+        <div class="service-detail-inner">
+          <div class="service-detail-content">
+            <div class="service-detail-badge fade-in">01 · Management Consulting</div>
+            <h2 class="service-detail-title fade-in fade-in-delay-1" id="management-heading">経営コンサルティング</h2>
+            <p class="service-detail-desc fade-in fade-in-delay-2">
+              大手広告代理店での経理財務業務や経営戦略の経験を活かし、企業の経営課題をトータルで支援します。財務分析に基づく的確なアドバイスから、事業戦略の策定・実行サポートまで、数字と戦略の両面からビジネスの成長を後押しします。
+            </p>
+            <div class="service-points fade-in fade-in-delay-3">
+              <div class="service-point">財務分析・経営数値の可視化・改善提案</div>
+              <div class="service-point">予算策定・資金繰り管理・キャッシュフロー改善</div>
+              <div class="service-point">事業計画の策定・中長期経営戦略の立案</div>
+              <div class="service-point">新規事業開発・海外進出戦略の企画サポート</div>
+              <div class="service-point">経理財務業務のDX化・業務効率化コンサルティング</div>
+            </div>
+          </div>
+          <div class="service-visual fade-in fade-in-delay-1">
+            <div class="service-visual-icon">📊</div>
+            <div class="service-visual-title">経営コンサルティング</div>
+            <div class="service-visual-subtitle">数字と戦略の両面から<br />経営課題を解決します</div>
+            <div class="service-tags-wrap">
+              <span class="stag">財務アドバイス</span>
+              <span class="stag">経営アドバイザリー</span>
+              <span class="stag">事業戦略</span>
+              <span class="stag">資金管理</span>
+              <span class="stag">DX推進</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- マーケティングコンサルティング -->
+    <section class="service-detail" id="marketing" aria-labelledby="marketing-heading">
+      <div class="container">
+        <div class="service-detail-inner">
+          <div class="service-detail-content">
+            <div class="service-detail-badge fade-in">02 · Marketing Consulting</div>
+            <h2 class="service-detail-title fade-in fade-in-delay-1" id="marketing-heading">マーケティングコンサルティング</h2>
+            <p class="service-detail-desc fade-in fade-in-delay-2">
+              SNSマーケティング・ブランディング戦略から、ホームページ制作・コンテンツ作成まで、マーケティング活動に必要なすべてをワンストップで提供します。大手広告代理店での戦略コンサルティング経験をもとに、データに基づいた施策で確実な成果を出します。
+            </p>
+            <div style="background:linear-gradient(135deg,#eff6ff,#dbeafe);border:1px solid rgba(59,130,246,0.15);border-radius:12px;padding:20px 24px;margin-bottom:28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap" class="fade-in fade-in-delay-2">
+              <div style="font-size:28px;line-height:1">💻</div>
+              <div style="flex:1;min-width:200px">
+                <div style="font-size:15px;font-weight:700;color:#1e40af;margin-bottom:2px">ホームページ制作</div>
+                <div style="font-size:13px;color:#475569">デザイン・コーディング・SEO対策・公開後の保守運用まで</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:16px;flex-shrink:0">
+                <div style="text-align:center">
+                  <div style="font-family:var(--font-en);font-size:22px;font-weight:700;color:#1e40af;line-height:1">3日〜</div>
+                  <div style="font-size:10px;color:#64748b;margin-top:2px">最短納期</div>
+                </div>
+                <div style="width:1px;height:32px;background:rgba(59,130,246,0.2)"></div>
+                <div style="text-align:center">
+                  <div style="font-family:var(--font-en);font-size:22px;font-weight:700;color:#1e40af;line-height:1">5万円〜</div>
+                  <div style="font-size:10px;color:#64748b;margin-top:2px">制作費用</div>
+                </div>
+              </div>
+            </div>
+            <div class="service-points fade-in fade-in-delay-3">
+              <div class="service-point">SNSマーケティング戦略立案・アカウント運用・広告運用</div>
+              <div class="service-point">ブランディング戦略の策定・ブランドアイデンティティ構築</div>
+              <div class="service-point">ホームページ制作（デザイン・実装・SEO対策・保守運用）</div>
+              <div class="service-point">コンテンツ制作（記事・SNS投稿・動画スクリプト・広告コピー）</div>
+              <div class="service-point">デジタルマーケティング全般（SEO・Web広告・効果測定）</div>
+            </div>
+          </div>
+          <div class="service-visual fade-in fade-in-delay-1">
+            <div class="service-visual-icon">🚀</div>
+            <div class="service-visual-title">マーケティングコンサルティング</div>
+            <div class="service-visual-subtitle">戦略立案から制作・運用まで<br />ワンストップでサポート</div>
+            <div class="service-tags-wrap">
+              <span class="stag">SNSマーケティング</span>
+              <span class="stag">ブランディング</span>
+              <span class="stag">HP制作</span>
+              <span class="stag">コンテンツ制作</span>
+              <span class="stag">SEO</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- バックオフィス代行 -->
+    <section class="service-detail" id="backoffice" aria-labelledby="backoffice-heading">
+      <div class="container">
+        <div class="service-detail-inner">
+          <div class="service-detail-content">
+            <div class="service-detail-badge fade-in">03 · Back Office Outsourcing</div>
+            <h2 class="service-detail-title fade-in fade-in-delay-1" id="backoffice-heading">バックオフィス代行</h2>
+            <p class="service-detail-desc fade-in fade-in-delay-2">
+              経理財務業務を中心に、企業のバックオフィス業務を代行します。大手広告代理店での経理財務経験とFP資格を活かし、日常の記帳・仕訳から決算業務、財務レポート作成まで、正確かつ効率的にサポート。社内リソースの負担を軽減し、コア業務への集中を実現します。
+            </p>
+            <div class="service-points fade-in fade-in-delay-3">
+              <div class="service-point">記帳代行・仕訳入力・経費精算業務</div>
+              <div class="service-point">月次・年次決算サポート・財務レポート作成</div>
+              <div class="service-point">請求書発行・入金管理・売掛金管理</div>
+              <div class="service-point">給与計算・社会保険手続きサポート</div>
+              <div class="service-point">経理財務業務フローの整備・効率化提案</div>
+            </div>
+          </div>
+          <div class="service-visual fade-in fade-in-delay-1">
+            <div class="service-visual-icon">🗂️</div>
+            <div class="service-visual-title">バックオフィス代行</div>
+            <div class="service-visual-subtitle">経理財務を中心に<br />バックオフィス業務をまるごとサポート</div>
+            <div class="service-tags-wrap">
+              <span class="stag">記帳代行</span>
+              <span class="stag">決算サポート</span>
+              <span class="stag">請求管理</span>
+              <span class="stag">給与計算</span>
+              <span class="stag">業務効率化</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--       個人向けサービス           -->
+    <!-- ============================== -->
+    <div class="category-header" id="individual">
+      <div class="container">
+        <div class="category-header-inner fade-in">
+          <div class="category-icon individual">👤</div>
+          <div>
+            <div class="category-title">個人向けサービス</div>
+            <div class="category-subtitle">For Individuals</div>
+          </div>
+        </div>
+        <div class="category-divider green"></div>
+      </div>
+    </div>
+
+    <!-- ファイナンシャルプランニング -->
+    <section class="service-detail" id="fp" aria-labelledby="fp-heading">
+      <div class="container">
+        <div class="service-detail-inner">
+          <div class="service-detail-content">
+            <div class="service-detail-badge green fade-in">04 · Financial Planning</div>
+            <h2 class="service-detail-title fade-in fade-in-delay-1" id="fp-heading">ファイナンシャルプランニング</h2>
+            <p class="service-detail-desc fade-in fade-in-delay-2">
+              FP2級資格保有者が、あなたのお金に関するあらゆる悩みに対面・オンラインでお応えします。ライフプランの設計から資産形成、保険の見直し、節税対策まで、中長期的な視点で最適なマネープランをご提案します。
+            </p>
+            <div class="service-points fade-in fade-in-delay-3">
+              <div class="service-point green">ライフプランシミュレーション・将来設計のサポート</div>
+              <div class="service-point green">資産形成アドバイス（NISA・iDeCo等の活用）</div>
+              <div class="service-point green">保険の見直し・最適なプランのご提案</div>
+              <div class="service-point green">節税対策・確定申告に関するアドバイス</div>
+              <div class="service-point green">住宅ローン・教育資金・老後資金のご相談</div>
+            </div>
+          </div>
+          <div class="service-visual green fade-in fade-in-delay-1">
+            <div class="service-visual-icon">💰</div>
+            <div class="service-visual-title">ファイナンシャルプランニング</div>
+            <div class="service-visual-subtitle">FP資格保有者による<br />対面・オンライン個別相談</div>
+            <div class="service-tags-wrap">
+              <span class="stag green">ライフプラン</span>
+              <span class="stag green">資産形成</span>
+              <span class="stag green">NISA / iDeCo</span>
+              <span class="stag green">保険見直し</span>
+              <span class="stag green">節税</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 給与ナビ -->
+    <section class="service-detail" id="kyuyo-navi" aria-labelledby="kyuyo-heading">
+      <div class="container">
+        <div class="service-detail-inner">
+          <div class="service-detail-content">
+            <div class="service-detail-badge green fade-in">05 · Kyuyo Navi</div>
+            <h2 class="service-detail-title fade-in fade-in-delay-1" id="kyuyo-heading">給与ナビ</h2>
+            <p class="service-detail-desc fade-in fade-in-delay-2">
+              吉成株式会社が自社開発・運営する給与明細可視化Webアプリです。給与明細のPDFをアップロードするだけで内容を自動解析し、手取り額の推移や税金・社会保険料の内訳をグラフでわかりやすく表示。毎月のお金の流れを「見える化」することで、家計の見直しや将来の資産設計に役立てていただけます。
+            </p>
+            <div class="service-points fade-in fade-in-delay-3">
+              <div class="service-point green">給与明細PDFの自動解析・データ取り込み</div>
+              <div class="service-point green">手取り額・控除額の推移をグラフで可視化</div>
+              <div class="service-point green">税金・社会保険料の内訳を自動整理・比較</div>
+              <div class="service-point green">スマートフォン・PC 両対応のWebアプリ</div>
+            </div>
+          </div>
+          <div class="service-visual green fade-in fade-in-delay-1">
+            <div class="service-visual-icon">📋</div>
+            <div class="service-visual-title">給与ナビ</div>
+            <div class="service-visual-subtitle">PDF自動解析で給与明細を可視化<br /><a href="https://kyuyonavi.app" target="_blank" rel="noopener" style="color:#16a34a;text-decoration:underline;font-weight:600;">kyuyonavi.app →</a></div>
+            <div class="service-tags-wrap">
+              <span class="stag green">PDF自動解析</span>
+              <span class="stag green">手取り推移</span>
+              <span class="stag green">控除内訳</span>
+              <span class="stag green">Webアプリ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="services-cta" aria-labelledby="services-cta-heading">
+      <div class="cta-inner">
+        <h2 class="cta-title fade-in" id="services-cta-heading">どのサービスか<br />迷ったらご相談ください</h2>
+        <p class="cta-desc fade-in fade-in-delay-1">法人・個人を問わず、まずはお気軽にご相談ください。現状の課題をお聞きした上で、最適なサービスをご提案します。初回相談は無料です。</p>
+        <a href="contact.html" class="btn btn-white fade-in fade-in-delay-2">無料相談フォームへ →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- フッター -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <div class="logo">
+            <span class="logo-name">吉成株式会社</span>
+            <span class="logo-tagline">Yoshinari Corporation</span>
+          </div>
+          <p class="footer-desc">経営コンサルティング・マーケティング・ファイナンシャルプランニングでビジネスと暮らしをサポートします。</p>
+        </div>
+        <nav class="footer-nav" aria-label="フッターナビゲーション">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="services.html">サービス一覧</a></li>
+            <li><a href="about.html">代表紹介</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+          </ul>
+        </nav>
+        <div class="footer-nav">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#management">経営コンサルティング</a></li>
+            <li><a href="#marketing">マーケティング</a></li>
+            <li><a href="#backoffice">バックオフィス代行</a></li>
+            <li><a href="#fp">FPサービス</a></li>
+            <li><a href="#kyuyo-navi">給与ナビ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2024 Yoshinari Corporation. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

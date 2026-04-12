@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="吉成株式会社 代表取締役 古市良徳のプロフィール。大手広告代理店でのマーケティング・経理財務の経験、グローバルビジネスの実績、FP資格を活かしたトータルサポート。" />
+  <meta property="og:title" content="代表紹介 | 吉成株式会社" />
+  <meta property="og:description" content="吉成株式会社 代表取締役 古市良徳のプロフィール。マーケティング・経理財務の経験を活かしたトータルサポート。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yoshinarcorp.com/about.html" />
+  <meta property="og:image" content="https://yoshinarcorp.com/images/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://yoshinarcorp.com/images/og-image.png" />
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+  <title>代表紹介 | 吉成株式会社</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ---- 代表紹介ページ固有スタイル ---- */
+
+    .page-header {
+      padding: 120px 0 72px;
+      background: linear-gradient(150deg, #f0f5ff 0%, #ffffff 70%);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .page-header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--color-text-muted);
+      margin-bottom: 24px;
+    }
+
+    .breadcrumb a { color: var(--color-text-muted); transition: color var(--transition); }
+    .breadcrumb a:hover { color: var(--color-accent); }
+    .breadcrumb span { color: var(--color-text-primary); }
+
+    .page-title {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .page-desc {
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      max-width: 560px;
+      line-height: 1.9;
+    }
+
+    /* プロフィールセクション */
+    .profile-section {
+      padding: 96px 0 80px;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    /* 写真 */
+    .profile-photo-wrap {
+      position: sticky;
+      top: 100px;
+    }
+
+    .profile-photo {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .profile-photo-caption {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .profile-photo-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      letter-spacing: 0.04em;
+    }
+
+    .profile-photo-name-en {
+      font-family: var(--font-en);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .profile-photo-role {
+      font-size: 13px;
+      color: var(--color-accent);
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    /* プロフィール本文 */
+    .profile-content {}
+
+    .profile-message {
+      margin-bottom: 56px;
+    }
+
+    .profile-message-title {
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+
+    .profile-message-title em {
+      font-style: normal;
+      color: var(--color-accent);
+    }
+
+    .profile-message p {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      line-height: 2;
+      margin-bottom: 16px;
+    }
+
+    /* 経歴セクション */
+    .profile-block {
+      margin-bottom: 48px;
+    }
+
+    .profile-block-label {
+      font-family: var(--font-en);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-accent-light);
+      margin-bottom: 8px;
+    }
+
+    .profile-block-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--color-border);
+    }
+
+    /* タイムライン */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: var(--color-border);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 28px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -28px;
+      top: 7px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--color-white);
+      border: 3px solid var(--color-accent-light);
+      z-index: 1;
+    }
+
+    .timeline-item:first-child::before {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+    }
+
+    .timeline-year {
+      font-family: var(--font-en);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-accent);
+      margin-bottom: 4px;
+    }
+
+    .timeline-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin-bottom: 4px;
+    }
+
+    .timeline-desc {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      line-height: 1.8;
+    }
+
+    /* 資格・スキル */
+    .quals-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .qual-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 20px 22px;
+      transition: border-color var(--transition);
+    }
+
+    .qual-card:hover {
+      border-color: rgba(59,130,246,0.3);
+    }
+
+    .qual-icon {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .qual-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin-bottom: 4px;
+    }
+
+    .qual-detail {
+      font-size: 12px;
+      color: var(--color-text-muted);
+    }
+
+    /* 強みタグ */
+    .strengths {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .strength-tag {
+      background: rgba(59,130,246,0.06);
+      border: 1px solid rgba(59,130,246,0.15);
+      color: var(--color-accent);
+      border-radius: 100px;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* CTA */
+    .about-cta {
+      background: var(--color-accent);
+      padding: 80px 0;
+    }
+
+    .cta-inner {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .cta-title {
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 700;
+      color: var(--color-white);
+      margin-bottom: 16px;
+    }
+
+    .cta-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.9;
+      margin-bottom: 36px;
+    }
+
+    .btn-white {
+      background: var(--color-white);
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+
+    .btn-white:hover {
+      background: #f0f5ff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+    /* レスポンシブ */
+    @media (max-width: 900px) {
+      .profile-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .profile-photo-wrap {
+        position: static;
+        max-width: 280px;
+        margin: 0 auto;
+      }
+
+      .quals-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="吉成株式会社 トップへ">
+        <span class="logo-name">吉成株式会社</span>
+        <span class="logo-tagline">Yoshinari Corporation</span>
+      </a>
+      <button class="hamburger" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" role="navigation" aria-label="グローバルナビゲーション">
+        <a href="index.html">ホーム</a>
+        <a href="services.html">サービス</a>
+        <a href="about.html" class="active">代表紹介</a>
+        <a href="contact.html" class="nav-cta">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ページヘッダー -->
+    <div class="page-header">
+      <div class="page-header-inner">
+        <div class="breadcrumb">
+          <a href="index.html">ホーム</a>
+          <span>›</span>
+          <span>代表紹介</span>
+        </div>
+        <p class="section-label fade-in">About CEO</p>
+        <h1 class="page-title fade-in fade-in-delay-1">代表紹介</h1>
+        <p class="page-desc fade-in fade-in-delay-2">吉成株式会社 代表取締役 古市良徳のプロフィールをご紹介します。</p>
+      </div>
+    </div>
+
+    <!-- プロフィール -->
+    <section class="profile-section" aria-labelledby="profile-heading">
+      <div class="container">
+        <div class="profile-grid">
+
+          <!-- 写真 -->
+          <div class="profile-photo-wrap fade-in">
+            <img
+              src="images/ceo-profile.jpg"
+              alt="古市 良徳 - 吉成株式会社 代表取締役"
+              class="profile-photo"
+              width="340"
+              height="453"
+            />
+            <div class="profile-photo-caption">
+              <div class="profile-photo-name">古市 良徳</div>
+              <div class="profile-photo-name-en">Ryotoku Furuichi</div>
+              <div class="profile-photo-role">代表取締役</div>
+            </div>
+          </div>
+
+          <!-- 本文 -->
+          <div class="profile-content">
+
+            <!-- メッセージ -->
+            <div class="profile-message fade-in fade-in-delay-1">
+              <h2 class="profile-message-title" id="profile-heading">
+                マーケティングと<em>ファイナンス</em>、<br />
+                両方の視点から<br />
+                ビジネスの成長を支える。
+              </h2>
+              <p>
+                慶應義塾大学総合政策学部を卒業後、大手総合広告代理店にて経理財務とグローバルマーケティングの双方を経験してきました。決算・税務・財務分析を通じて数字に基づく経営判断力を培い、グローバル戦略部門では日系企業の海外進出支援やブランディング戦略の立案に従事しています。
+              </p>
+              <p>
+                海外派遣員として現地法人の経営管理やマーケティングにも携わり、不動産・医療分野の会社では役員として経理財務の最適化や事業運営を推進してきました。
+              </p>
+              <p>
+                多彩な経験を活かし、「マーケティング」と「ファイナンス」の両面からお客様のビジネスを支援します。SNSマーケティング・ブランディング・Web制作・ファイナンシャルプランニングまで、ワンストップでお客様の成長に伴走いたします。
+              </p>
+            </div>
+
+            <!-- 略歴 -->
+            <div class="profile-block fade-in">
+              <div class="profile-block-label">Career</div>
+              <h3 class="profile-block-title">略歴</h3>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="timeline-year">2026 -</div>
+                  <div class="timeline-title">吉成株式会社 設立</div>
+                  <div class="timeline-desc">SNSマーケティング・ブランディング・デジタルマーケティング・Web制作・FPサービスを展開</div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-year">2020</div>
+                  <div class="timeline-title">大手総合広告代理店</div>
+                  <div class="timeline-desc">経理財務業務、グローバルマーケティング・ブランディング、経営戦略／企画に従事</div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-year">2020</div>
+                  <div class="timeline-title">慶應義塾大学 総合政策学部 卒業</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 資格 -->
+            <div class="profile-block fade-in">
+              <div class="profile-block-label">Qualifications</div>
+              <h3 class="profile-block-title">保有資格</h3>
+              <div class="quals-grid">
+                <div class="qual-card">
+                  <div class="qual-icon">🌐</div>
+                  <div class="qual-name">IELTS OA 7.5</div>
+                  <div class="qual-detail">Listening 8.5 / Reading 8.5</div>
+                </div>
+                <div class="qual-card">
+                  <div class="qual-icon">🌐</div>
+                  <div class="qual-name">TOEIC 905点</div>
+                  <div class="qual-detail">2024年取得</div>
+                </div>
+                <div class="qual-card">
+                  <div class="qual-icon">💰</div>
+                  <div class="qual-name">FP 2級</div>
+                  <div class="qual-detail">ファイナンシャルプランニング技能士</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 強み -->
+            <div class="profile-block fade-in">
+              <div class="profile-block-label">Expertise</div>
+              <h3 class="profile-block-title">専門領域</h3>
+              <div class="strengths">
+                <span class="strength-tag">SNSマーケティング</span>
+                <span class="strength-tag">ブランディング戦略</span>
+                <span class="strength-tag">グローバルマーケティング</span>
+                <span class="strength-tag">デジタルマーケティング</span>
+                <span class="strength-tag">戦略コンサルティング</span>
+                <span class="strength-tag">経理財務</span>
+                <span class="strength-tag">ファイナンシャルプランニング</span>
+                <span class="strength-tag">Web制作</span>
+                <span class="strength-tag">コンテンツ制作</span>
+                <span class="strength-tag">バイリンガル（日英）</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="about-cta" aria-labelledby="about-cta-heading">
+      <div class="cta-inner">
+        <h2 class="cta-title fade-in" id="about-cta-heading">まずはお気軽に<br />ご相談ください</h2>
+        <p class="cta-desc fade-in fade-in-delay-1">マーケティング・Web制作・FPサービスに関するご相談は無料です。お客様の課題に合わせた最適なご提案をします。</p>
+        <a href="contact.html" class="btn btn-white fade-in fade-in-delay-2">無料相談フォームへ →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- フッター -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <div class="logo">
+            <span class="logo-name">吉成株式会社</span>
+            <span class="logo-tagline">Yoshinari Corporation</span>
+          </div>
+          <p class="footer-desc">SNSマーケティング・デジタル戦略・ホームページ制作・ファイナンシャルプランニングでビジネスの成長を支援します。</p>
+        </div>
+        <nav class="footer-nav" aria-label="フッターナビゲーション">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="services.html">サービス一覧</a></li>
+            <li><a href="about.html">代表紹介</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+          </ul>
+        </nav>
+        <div class="footer-nav">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html#management">経営コンサルティング</a></li>
+            <li><a href="services.html#marketing">マーケティング</a></li>
+            <li><a href="services.html#backoffice">バックオフィス代行</a></li>
+            <li><a href="services.html#fp">FPサービス</a></li>
+            <li><a href="services.html#kyuyo-navi">給与ナビ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2024 Yoshinari Corporation. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

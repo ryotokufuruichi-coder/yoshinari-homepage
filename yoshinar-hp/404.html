@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+  <title>ページが見つかりません | 吉成株式会社</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .error-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 24px;
+      background: linear-gradient(150deg, #f0f5ff 0%, #ffffff 70%);
+    }
+    .error-code {
+      font-family: var(--font-en);
+      font-size: clamp(80px, 15vw, 160px);
+      font-weight: 700;
+      color: rgba(30,64,175,0.08);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .error-title {
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin-bottom: 16px;
+    }
+    .error-desc {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      line-height: 1.9;
+      margin-bottom: 36px;
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="吉成株式会社 トップへ">
+        <span class="logo-name">吉成株式会社</span>
+        <span class="logo-tagline">Yoshinari Corporation</span>
+      </a>
+    </div>
+  </header>
+  <main class="error-page">
+    <div>
+      <div class="error-code">404</div>
+      <h1 class="error-title">ページが見つかりません</h1>
+      <p class="error-desc">お探しのページは移動または削除された可能性があります。URLをご確認のうえ、再度お試しください。</p>
+      <a href="index.html" class="btn btn-primary">トップページへ戻る →</a>
+    </div>
+  </main>
+  <script src="js/main.js"></script>
+</body>
+</html>
