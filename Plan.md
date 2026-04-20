@@ -59,14 +59,24 @@
 - 全5ページ（index, services, about, contact, 404）にトラッキングコード埋め込み済み
 - アカウント: ryotoku.furuichi@yoshinarcorp.com / プロパティ: yoshinarcorp.com
 
+### 3.5 Search Console インデックス最適化（2026-04-16）
+
+- sitemap.xml 更新（lastmod → 2026-04-16 / changefreq追加）
+- 4ページ（index/services/about/contact）に `<meta name="robots" content="index, follow, max-image-preview:large">` を明示追加
+- 同ページに `<meta name="googlebot" ...>` も追加（クロール意図を明確化）
+- 404.html に `<meta name="robots" content="noindex, follow">` を追加（ベストプラクティス）
+- ※Search Consoleの3つのメッセージ（noindex/リダイレクト/代替ページ）はいずれも情報提供メッセージであり、既存HTMLには問題なしと検証済み
+
 ---
 
 ## 4. 残タスク（TODO）
 
 - [x] **Git Push（SEO変更分）** ✅（2026-04-13）
 - [x] **Google Analytics導入** ✅（2026-04-13）
-- [ ] **Git Push（GA4タグ追加分）** — ローカルターミナルから `git push origin main`
+- [x] **Search Console インデックス最適化** ✅（2026-04-16 robots meta / sitemap更新）
+- [ ] **Git Push（GA4 + SEO追加分）** — ローカルターミナルから `git commit -am "..." && git push origin main`
 - [ ] **Googleビジネスプロフィール完了** — 画像アップロード・確認・公開
+- [ ] **Search Consoleでインデックス再リクエスト** — デプロイ後、URL検査ツールで「インデックス登録をリクエスト」
 
 ---
 
